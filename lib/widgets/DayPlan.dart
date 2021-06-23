@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 class DayPlan extends StatelessWidget 
 {
   final String day;
-  final List<String> dailyPlans;
+  final String title;
+  final String startTime;
+  final String endTime;
+  final List<String> plans;
 
-  DayPlan(this.day, this.dailyPlans);
+  DayPlan(this.day, this.title, this.startTime, this.endTime, this.plans);
 
   @override
   Widget build(BuildContext context) 
@@ -18,10 +21,12 @@ class DayPlan extends StatelessWidget
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(day, style: TextStyle(fontSize: 36.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100)), 
-              Text('16:30 - 17:30', style: TextStyle(color: Colors.blue)),
+              Text('${startTime} - ${endTime}', style: TextStyle(color: Colors.blue)),
+              Spacer(),
+              Text(title, style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
               Spacer(),
               IconButton(
-                icon: Icon(Icons.edit_rounded, size: 24,),
+                icon: Icon(Icons.edit_rounded, size: 24),
                 tooltip: 'Szerkesztés',
                 onPressed: () {  }
               )
@@ -29,17 +34,9 @@ class DayPlan extends StatelessWidget
           ),
           Spacer(),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto')),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-              Text('Asd', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
-            ],
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: _loadPlans(),
           )
         ]
       ),
@@ -50,5 +47,16 @@ class DayPlan extends StatelessWidget
         border: Border.all(color: Colors.grey, style: BorderStyle.solid, width: 0.5)
       ),
     );
+  }
+
+  List<Widget> _loadPlans() {
+
+    if(plans.length > 0) {
+      return new List<Widget>.generate(plans.length, (int index) {
+        return Text(plans[index].toString(), style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300));
+      });
+    } else {
+      return [Icon(Icons.not_interested, size: 100, color: Colors.grey)];
+    }
   }
 }

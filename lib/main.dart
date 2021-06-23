@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutplan/routes/Planner.dart';
 import 'package:workoutplan/widgets/Button.dart';
 
 void main() 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget
     return MaterialApp(
       title: 'Edzésterv készítő',
       theme: ThemeData(
-        primarySwatch: Colors.cyan
+        primarySwatch: Colors.cyan,
+        fontFamily: 'Roboto'
       ),
       home: HomePage()
     );
@@ -27,33 +29,32 @@ class HomePage extends StatelessWidget
   Widget build(BuildContext context) 
   {
     return Scaffold(
-          appBar: AppBar(title: Text("Edzésterv készítő")),
-          body: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("./assets/images/workout_background.jpg"), 
-                fit: BoxFit.cover
-              ),
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  Spacer(),
-                  Button('Tervezés', Icons.calendar_today, () => setPage(1)),
-                  SizedBox(height: 30),
-                  Button('Jegyzet', Icons.edit_rounded, () => setPage(2)),
-                  SizedBox(height: 30),
-                  Button('Kalória számláló', Icons.calculate_outlined, () => setPage(3)),
-                  Spacer()
-                ]
-              )
-            )
+      appBar: AppBar(title: Text("Edzésterv készítő")),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("./assets/images/workout_background.jpg"), 
+            fit: BoxFit.cover
+          ),
+        ),
+        child: Center(
+          child: Column(
+            children: [
+              Spacer(),
+              Button('Tervezés', Icons.calendar_today, () => navigate(context, Planner())),
+              SizedBox(height: 30),
+              Button('Jegyzet', Icons.edit_rounded, () => navigate(context, Planner())),
+              SizedBox(height: 30),
+              Button('Kalória számláló', Icons.calculate_outlined, () => navigate(context, Planner())),
+              Spacer()
+            ]
           )
-        );
+        )
+      )
+    );
   }
 
-  setPage(page) {
-    page ++;
-    return page;
+  void navigate(context, page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }
