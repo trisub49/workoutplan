@@ -24,9 +24,9 @@ class DayPlan extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(day, style: TextStyle(fontSize: 36.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100)), 
-              Text('${startTime} - ${endTime}', style: TextStyle(color: Colors.blue)),
+              Text(startTime.length > 0 && endTime.length > 0 ? '${startTime} - ${endTime}' : '', style: TextStyle(color: Colors.blue)),
               Spacer(),
-              Text(title, style: TextStyle(fontSize: 22.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
+              Text(title.length > 0 ? title : 'Nincs megadva', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
               Spacer(),
               IconButton(
                 icon: Icon(Icons.edit_rounded, size: 24),
@@ -60,10 +60,17 @@ class DayPlan extends StatelessWidget {
 
     if(plans.length > 0) {
       return new List<Widget>.generate(plans.length, (int index) {
-        return Text(plans[index].toString(), style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300));
+        return Text(
+          plans[index].toString(), 
+          style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)
+        );
       });
     } else {
-      return [Icon(Icons.not_interested, size: 100, color: Colors.grey)];
+      return [
+        Spacer(),
+        Icon(Icons.not_interested, size: 100, color: Colors.grey),
+        Spacer()
+      ];
     }
   }
 }

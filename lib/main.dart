@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workoutplan/routes/Planner.dart';
 import 'package:workoutplan/widgets/Button.dart';
 
-void main() 
-{
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget 
 {

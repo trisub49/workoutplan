@@ -9,13 +9,11 @@ class ListPlan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: _loadPlans());
   }
 
   List<Widget> _loadPlans() {
-
     if(plans.length > 0) {
       return new List<Widget>.generate(plans.length, (int index) {
         return Container(
