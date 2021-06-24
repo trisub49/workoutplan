@@ -8,7 +8,6 @@ class Planner extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    global.initDays();
     return Scaffold(
       appBar: AppBar(title: Text('Tervezés')),
       body: ListView(

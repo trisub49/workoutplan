@@ -18,7 +18,7 @@ initDays() {
     days.add(new Day(day, '', '', '',  [
       new WeightPlan('Fekvenyomás', 5, 20, 50), 
       new CalisthenicPlan('Fekvőtámasz', 6, 25),
-      new TimedPlan.ex('Futás', 30),
+      new TimedPlan('Futás', 30),
       new SerialTimedPlan('Plank', 5, 2)]));
   }
 }

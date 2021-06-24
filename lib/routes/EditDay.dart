@@ -36,7 +36,7 @@ class EditDay extends StatelessWidget {
             )
           ),
           SizedBox(height: 40),
-          ListPlan(global.days[dayId].plans),
+          ListPlan(dayId, global.days[dayId].plans),
           SizedBox(height: 40),
           Center(child:Button('Új terv', Icons.add, () => {}, 200, 50))
         ]

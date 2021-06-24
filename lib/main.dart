@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:workoutplan/routes/Planner.dart';
 import 'package:workoutplan/widgets/Button.dart';
+import 'package:workoutplan/global.dart' as global;
 
-void main() => runApp(MyApp());
+void main() {
+  global.initDays();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget 
 {

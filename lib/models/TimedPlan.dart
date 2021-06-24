@@ -4,11 +4,10 @@ class TimedPlan extends Plan {
   
   int minute;
 
-  TimedPlan.ex(name, minute) {
+  TimedPlan(name, minute) {
     super.name = name;
     this.minute = minute;
   }
-  TimedPlan();
 
   @override
   String toString() {
