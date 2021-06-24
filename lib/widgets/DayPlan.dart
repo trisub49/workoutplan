@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:workoutplan/routes/EditDay.dart';
 
-class DayPlan extends StatelessWidget 
-{
+class DayPlan extends StatelessWidget {
   final String day;
   final String title;
   final String startTime;
@@ -11,8 +11,8 @@ class DayPlan extends StatelessWidget
   DayPlan(this.day, this.title, this.startTime, this.endTime, this.plans);
 
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
+
     return Container(
       child: Row(
         children: [
@@ -23,12 +23,12 @@ class DayPlan extends StatelessWidget
               Text(day, style: TextStyle(fontSize: 36.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100)), 
               Text('${startTime} - ${endTime}', style: TextStyle(color: Colors.blue)),
               Spacer(),
-              Text(title, style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
+              Text(title, style: TextStyle(fontSize: 22.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
               Spacer(),
               IconButton(
                 icon: Icon(Icons.edit_rounded, size: 24),
                 tooltip: 'Szerkesztés',
-                onPressed: () {  }
+                onPressed: () => navigate(context, EditDay(day, title, startTime, endTime, plans))
               )
             ]
           ),
@@ -47,6 +47,10 @@ class DayPlan extends StatelessWidget
         border: Border.all(color: Colors.grey, style: BorderStyle.solid, width: 0.5)
       ),
     );
+  }
+
+  void navigate(context, page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 
   List<Widget> _loadPlans() {
