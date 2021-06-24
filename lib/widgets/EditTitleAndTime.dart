@@ -14,8 +14,10 @@ class _EditTitleAndTimeState extends State<EditTitleAndTime> {
     return Form(
       key: _formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.all(7.5),
@@ -26,11 +28,12 @@ class _EditTitleAndTimeState extends State<EditTitleAndTime> {
                   ),
                   validator: (String value) {
                   }
-                ),
+                )
               )
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 child: Icon(Icons.timer_sharp, size: 36),
@@ -56,7 +59,6 @@ class _EditTitleAndTimeState extends State<EditTitleAndTime> {
                     labelText: 'Befejezés',
                   ),
                   validator: (String value) {
-  
                   }
                 )
               )

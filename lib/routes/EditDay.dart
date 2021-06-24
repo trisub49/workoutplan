@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutplan/widgets/EditTitleAndTime.dart';
+import 'package:workoutplan/widgets/ListPlan.dart';
 
 class EditDay extends StatelessWidget {
 
@@ -15,16 +16,23 @@ class EditDay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Napi terv szerkesztése')),
-      body: Container(
-        padding: EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Text(day, style: TextStyle(fontSize: 36, fontFamily: 'Roboto', fontWeight: FontWeight.w100)),
-            Divider(color: Colors.grey),
-            EditTitleAndTime(),
-            Divider(color: Colors.grey)
-          ]
-        )
+      body: ListView(
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Colors.white),
+            padding: EdgeInsets.all(15.0),
+            child: Center(
+              child: Text(day, style: TextStyle(fontSize: 36, fontFamily: 'Roboto', fontWeight: FontWeight.w100))
+            )
+          ),
+          Spacer(),
+          Container( 
+            decoration: BoxDecoration(color: Colors.grey.shade100),
+            padding: EdgeInsets.all(15.0),
+            child: EditTitleAndTime()
+          ),
+          ListPlan(plans)
+        ]
       )
     );
   }
