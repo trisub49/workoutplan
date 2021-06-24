@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:workoutplan/models/Plan.dart';
 
 class ListPlan extends StatelessWidget {
 
-  List<String> plans;
+  List<Plan> plans;
 
   ListPlan(this.plans);
 
@@ -26,7 +27,7 @@ class ListPlan extends StatelessWidget {
               Spacer(),
               Icon(Icons.edit_outlined, size: 30.0, color: Colors.lightBlue),
               SizedBox(width: 20),
-              Icon(Icons.delete_outlined, size: 30.0)
+              Icon(Icons.delete_outlined, size: 30.0, color: Colors.red.shade300)
             ]
           )
         );

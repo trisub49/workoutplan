@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:workoutplan/widgets/Button.dart';
+import 'package:workoutplan/widgets/DayActions.dart';
 import 'package:workoutplan/widgets/EditTitleAndTime.dart';
 import 'package:workoutplan/widgets/ListPlan.dart';
+import 'package:workoutplan/global.dart' as global;
 
 class EditDay extends StatelessWidget {
 
-  final String day;
-  final String title;
-  final String startTime;
-  final String endTime;
-  final List<String> plans;
+  final int dayId;
 
-  EditDay(this.day, this.title, this.startTime, this.endTime, this.plans);
+  EditDay(this.dayId);
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +21,24 @@ class EditDay extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.white),
             padding: EdgeInsets.all(15.0),
             child: Center(
-              child: Text(day, style: TextStyle(fontSize: 36, fontFamily: 'Roboto', fontWeight: FontWeight.w100))
+              child: Text(global.days[dayId].day, style: TextStyle(fontSize: 36, fontFamily: 'Roboto', fontWeight: FontWeight.w100))
             )
           ),
-          Spacer(),
           Container( 
             decoration: BoxDecoration(color: Colors.grey.shade100),
             padding: EdgeInsets.all(15.0),
-            child: EditTitleAndTime()
+            child: Row(
+              children: [
+                EditTitleAndTime(),
+                Spacer(),
+                DayActions(),
+              ]
+            )
           ),
-          ListPlan(plans)
+          SizedBox(height: 40),
+          ListPlan(global.days[dayId].plans),
+          SizedBox(height: 40),
+          Center(child:Button('Új terv', Icons.add, () => {}, 200, 50))
         ]
       )
     );

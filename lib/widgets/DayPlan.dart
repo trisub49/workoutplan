@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:workoutplan/models/Plan.dart';
 import 'package:workoutplan/routes/EditDay.dart';
+import 'package:workoutplan/global.dart' as global;
 
 class DayPlan extends StatelessWidget {
+
   final String day;
   final String title;
   final String startTime;
   final String endTime;
-  final List<String> plans;
+  final List<Plan> plans;
 
   DayPlan(this.day, this.title, this.startTime, this.endTime, this.plans);
 
@@ -28,7 +31,7 @@ class DayPlan extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.edit_rounded, size: 24),
                 tooltip: 'Szerkesztés',
-                onPressed: () => navigate(context, EditDay(day, title, startTime, endTime, plans))
+                onPressed: () => navigate(context, EditDay(global.getDayId(day)))
               )
             ]
           ),

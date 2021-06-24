@@ -41,11 +41,11 @@ class HomePage extends StatelessWidget
           child: Column(
             children: [
               Spacer(),
-              Button('Tervezés', Icons.calendar_today, () => navigate(context, Planner())),
+              Button('Tervezés', Icons.calendar_today, () => navigate(context, Planner()), 360, 60),
               SizedBox(height: 30),
-              Button('Jegyzet', Icons.edit_rounded, () => navigate(context, Planner())),
+              Button('Jegyzet', Icons.edit_rounded, () => navigate(context, Planner()), 360, 60),
               SizedBox(height: 30),
-              Button('Kalória számláló', Icons.calculate_outlined, () => navigate(context, Planner())),
+              Button('Kalória számláló', Icons.calculate_outlined, () => navigate(context, Planner()), 360, 60),
               Spacer()
             ]
           )

@@ -24,7 +24,7 @@ class _EditTitleAndTimeState extends State<EditTitleAndTime> {
                 width: 260,
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Napod elnevezése, pl. Lábnap',
+                    labelText: 'Elnevezés, például: Lábnap',
                   ),
                   validator: (String value) {
                   }
@@ -36,7 +36,7 @@ class _EditTitleAndTimeState extends State<EditTitleAndTime> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child: Icon(Icons.timer_sharp, size: 36),
+                child: Icon(Icons.timer_sharp, size: 30, color: Colors.grey),
                 padding: EdgeInsets.all(7.5)
               ),
               Container(
