@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:workoutplan/widgets/DayPlan.dart';
 import 'package:workoutplan/global.dart' as global;
 
-class Planner extends StatelessWidget {
+class Planner extends StatefulWidget {
+
+  _PlannerState createState() => _PlannerState();
+}
+
+class _PlannerState extends State<Planner> {
 
   Widget build(BuildContext context) {
     return Scaffold(

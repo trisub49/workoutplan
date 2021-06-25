@@ -7,13 +7,23 @@ import 'package:workoutplan/global.dart' as global;
 
 import 'AddPlan.dart';
 
-class EditDay extends StatelessWidget {
+class EditDay extends StatefulWidget {
 
   final int dayId;
 
   EditDay(this.dayId);
 
-  @override
+  _EditDayState createState() {
+    return _EditDayState(this.dayId);
+  }
+}
+
+class _EditDayState extends State<EditDay> {
+
+  int dayId;
+
+  _EditDayState(this.dayId);
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Napi terv szerkesztése')),
@@ -40,7 +50,10 @@ class EditDay extends StatelessWidget {
           SizedBox(height: 40),
           ListPlan(dayId, global.days[dayId].plans),
           SizedBox(height: 40),
-          Center(child:Button('Új terv', Icons.add, () => global.navigate(context, AddPlan(dayId)), 200, 50))
+          Center(
+            child: Button('Új terv', Icons.add, 
+            () =>  Navigator.push(context, MaterialPageRoute(builder: (context) => AddPlan(dayId))).then((value) => setState(() {}))
+          ,200, 50))
         ]
       )
     );

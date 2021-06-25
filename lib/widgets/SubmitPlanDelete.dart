@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:workoutplan/global.dart' as global;
-import 'package:workoutplan/routes/EditDay.dart';
-import 'package:workoutplan/routes/Planner.dart';
 
 class SubmitPlanDelete extends StatelessWidget {
 
@@ -25,11 +23,6 @@ class SubmitPlanDelete extends StatelessWidget {
 
   void deletePlan(BuildContext context, int dayId, int planId) {
     global.days[dayId].plans.removeAt(planId);
-    navigate(context, Planner());
-    navigate(context, EditDay(dayId));
-  }
-
-  void navigate(context, page) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+    Navigator.pop(context);
   }
 }

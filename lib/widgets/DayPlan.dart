@@ -3,7 +3,7 @@ import 'package:workoutplan/models/Plan.dart';
 import 'package:workoutplan/routes/EditDay.dart';
 import 'package:workoutplan/global.dart' as global;
 
-class DayPlan extends StatelessWidget {
+class DayPlan extends StatefulWidget {
 
   final String day;
   final String title;
@@ -13,7 +13,21 @@ class DayPlan extends StatelessWidget {
 
   DayPlan(this.day, this.title, this.startTime, this.endTime, this.plans);
 
-  @override
+  _DayPlanState createState() {
+    return _DayPlanState(day, title, startTime, endTime, plans);
+  }
+}
+
+class _DayPlanState extends State<DayPlan> {
+
+  String day;
+  String title;
+  String startTime;
+  String endTime;
+  List<Plan> plans;
+
+  _DayPlanState(this.day, this.title, this.startTime, this.endTime, this.plans);
+
   Widget build(BuildContext context) {
 
     return Container(
@@ -31,7 +45,7 @@ class DayPlan extends StatelessWidget {
               IconButton(
                 icon: Icon(Icons.edit_rounded, size: 24),
                 tooltip: 'Szerkesztés',
-                onPressed: () => navigate(context, EditDay(global.getDayId(day)))
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditDay(global.getDayId(day)))).then((value) => setState(() {}))
               )
             ]
           ),

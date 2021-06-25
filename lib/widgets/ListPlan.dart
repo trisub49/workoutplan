@@ -2,15 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:workoutplan/models/Plan.dart';
 import 'package:workoutplan/routes/EditPlan.dart';
 import 'package:workoutplan/widgets/SubmitPlanDelete.dart';
+import 'package:workoutplan/global.dart' as global;
 
-class ListPlan extends StatelessWidget {
+class ListPlan extends StatefulWidget {
+
+  final int dayId;
+  final List<Plan> plans;
+
+  ListPlan(this.dayId, this.plans);
+
+  _ListPlanState createState() {
+    return _ListPlanState(this.dayId, this.plans);
+  }
+}
+
+class _ListPlanState extends State<ListPlan> {
 
   int dayId;
   List<Plan> plans;
 
-  ListPlan(this.dayId, this.plans);
-
-  @override
+  _ListPlanState(this.dayId, this.plans);
+  
   Widget build(BuildContext context) {
     return Column(
       children: _loadPlans(context));
@@ -27,20 +39,20 @@ class ListPlan extends StatelessWidget {
               Text(plans[index].toString(), style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
               Spacer(),
               IconButton(
-                icon: Icon(Icons.edit_outlined, size: 30.0, color: Colors.lightBlue),
+                icon: Icon(Icons.edit_outlined, size: 26.0, color: Colors.lightBlue),
                 tooltip: 'Terv szerkesztése',
-                onPressed: () => navigate(context, EditPlan(dayId, index))
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditPlan(dayId, index))).then((value) => setState(() {}))
               ),
               SizedBox(width: 20),
               IconButton(
-                icon: Icon(Icons.delete_outlined, size: 30.0, color: Colors.red.shade300),
+                icon: Icon(Icons.delete_outlined, size: 26.0, color: Colors.red.shade300),
                 tooltip: 'Terv törlése',
                 onPressed: () {
                   showDialog(
                     context: context, 
                     builder: (_) => SubmitPlanDelete(context, dayId, index),
                     barrierDismissible: false
-                  );
+                  ).then((value) => setState(() {}));
                 }
               )
             ]
@@ -50,9 +62,5 @@ class ListPlan extends StatelessWidget {
     } else {
       return [Icon(Icons.not_interested, size: 100, color: Colors.grey)];
     }
-  }
-
-  void navigate(context, page) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

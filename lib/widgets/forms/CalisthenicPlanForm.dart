@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutplan/global.dart' as global;
 import 'package:workoutplan/models/CalisthenicPlan.dart';
-import 'package:workoutplan/routes/EditDay.dart';
 import 'package:workoutplan/widgets/Button.dart';
 import 'package:workoutplan/widgets/SimpleFormField.dart';
 
@@ -30,12 +29,19 @@ class _CalisthenicPlanFormState extends State<CalisthenicPlanForm> {
   _CalisthenicPlanFormState(this.dayId, this.planId);
 
   Widget build(BuildContext context) {
+
     CalisthenicPlan plan;
+
     if(planId == -1) {
       plan = new CalisthenicPlan(null, null, null);
     } else {
       plan = global.days[dayId].plans[planId];
     }
+
+    TextEditingController name = TextEditingController(text: plan.name != null ? plan.name : '');
+    TextEditingController serial = TextEditingController(text: plan.serial != null ? plan.serial.toString() : '');
+    TextEditingController rep = TextEditingController(text: plan.rep != null ? plan.rep.toString() : '');
+
     return Center(
       child:
         Form(
@@ -45,24 +51,25 @@ class _CalisthenicPlanFormState extends State<CalisthenicPlanForm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Spacer(),
-              new SimpleFormField('Edzés neve', plan.name != null ? plan.name : '', 340, TextInputType.text),
-              new SimpleFormField('Sorozatszám', plan.serial != null ? plan.serial.toString() : '', 125, TextInputType.number),
-              new SimpleFormField('Ismétlésszám', plan.rep != null ? plan.rep.toString() : '', 125, TextInputType.number),
+              new SimpleFormField('Edzés neve', 340, TextInputType.text, name),
+              new SimpleFormField('Sorozatszám', 125, TextInputType.number, serial),
+              new SimpleFormField('Ismétlésszám', 125, TextInputType.number, rep),
               Spacer(),
-              Button('Kész', Icons.done, () => validateForm(context,dayId, planId), 340, 50),
+              Button('Kész', Icons.done, () => validateForm(context, dayId, planId, name.text, serial.text, rep.text), 340, 50),
               Spacer()
             ]
           )
       )
     );
   }
-  void validateForm(context, dayId, planId)
-  {
+  void validateForm(context, dayId, planId, name, serial, rep) {
     if(_formKey.currentState.validate()) {
       if(planId == -1) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Terv hozzáadva!')));
+        global.days[dayId].plans.add(new CalisthenicPlan(name, int.parse(serial), int.parse(rep)));
       } else {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Terv módosítva!')));
+        global.days[dayId].plans[planId] = new CalisthenicPlan(name, int.parse(serial), int.parse(rep));
       }
       Navigator.pop(context);
     }
