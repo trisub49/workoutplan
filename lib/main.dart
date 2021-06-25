@@ -8,11 +8,9 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget 
-{
+class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) 
-  {
+  Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Edzésterv készítő',
       theme: ThemeData(
@@ -24,8 +22,7 @@ class MyApp extends StatelessWidget
   }
 }
 
-class HomePage extends StatelessWidget 
-{
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) 
   {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutplan/models/Plan.dart';
+import 'package:workoutplan/routes/EditPlan.dart';
 import 'package:workoutplan/widgets/SubmitPlanDelete.dart';
 
 class ListPlan extends StatelessWidget {
@@ -25,7 +26,11 @@ class ListPlan extends StatelessWidget {
             children: [
               Text(plans[index].toString(), style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
               Spacer(),
-              Icon(Icons.edit_outlined, size: 30.0, color: Colors.lightBlue),
+              IconButton(
+                icon: Icon(Icons.edit_outlined, size: 30.0, color: Colors.lightBlue),
+                tooltip: 'Terv szerkesztése',
+                onPressed: () => navigate(context, EditPlan(dayId, index))
+              ),
               SizedBox(width: 20),
               IconButton(
                 icon: Icon(Icons.delete_outlined, size: 30.0, color: Colors.red.shade300),
@@ -45,5 +50,9 @@ class ListPlan extends StatelessWidget {
     } else {
       return [Icon(Icons.not_interested, size: 100, color: Colors.grey)];
     }
+  }
+
+  void navigate(context, page) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

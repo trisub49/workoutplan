@@ -6,6 +6,7 @@ class TimedPlan extends Plan {
 
   TimedPlan(name, minute) {
     super.name = name;
+    super.type = TimedPlan;
     this.minute = minute;
   }
 

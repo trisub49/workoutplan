@@ -8,6 +8,7 @@ class WeightPlan extends Plan {
 
   WeightPlan(name, serial, rep, weight) {
     super.name = name;
+    super.type = WeightPlan;
     this.rep = rep;
     this.serial = serial;
     this.weight = weight;

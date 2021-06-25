@@ -7,6 +7,7 @@ class CalisthenicPlan extends Plan {
 
   CalisthenicPlan(name, serial, rep) {
     super.name = name;
+    super.type = CalisthenicPlan;
     this.rep = rep;
     this.serial = serial;
   }
