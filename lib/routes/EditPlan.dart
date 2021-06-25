@@ -13,13 +13,11 @@ import 'package:workoutplan/widgets/forms/WeightPlanForm.dart';
 
 
 class EditPlan extends StatelessWidget {
-
   final int dayId;
   final int planId;
 
   EditPlan(this.dayId, this.planId);
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Terv szerkesztés')),
@@ -33,20 +31,18 @@ class EditPlanForm extends StatelessWidget {
   final int planId;
 
   EditPlanForm(this.dayId, this.planId);
-  @override
+
   Widget build(BuildContext context) {
     return FormChooser(dayId, planId);
   }
 }
 
 class FormChooser extends StatelessWidget {
-
   final int dayId;
   final int planId;
 
   FormChooser(this.dayId, this.planId);
 
-  @override
   Widget build(BuildContext context) {
     Plan actualPlan = global.days[dayId].plans[planId];
 

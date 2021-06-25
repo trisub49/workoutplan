@@ -6,13 +6,22 @@ import 'package:workoutplan/widgets/SimpleFormField.dart';
 
 class SerialTimedPlanForm extends StatelessWidget {
 
-  final int dayId;
-  final int planId;
+  int dayId;
+  int planId;
 
   SerialTimedPlanForm(this.dayId, this.planId);
+  SerialTimedPlanForm.add(dayId) {
+    this.dayId = dayId;
+    this.planId = -1;
+  }
 
   Widget build(BuildContext context) {
-    SerialTimedPlan plan = global.days[dayId].plans[planId];
+    SerialTimedPlan plan;
+    if(planId == -1) {
+      plan = new SerialTimedPlan(null, null, null);
+    } else {
+      plan = global.days[dayId].plans[planId];
+    }
     return Center(
       child:
         Form(
@@ -21,9 +30,9 @@ class SerialTimedPlanForm extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Spacer(),
-            new SimpleFormField('Edzés neve', plan.name, 340),
-            new SimpleFormField('Sorozatszám', plan.serial.toString(), 125),
-            new SimpleFormField('Időtartam (perc)', plan.minute.toString(), 200),
+            SimpleFormField('Edzés neve', plan.name != null ? plan.name : '', 340, TextInputType.text),
+            SimpleFormField('Sorozatszám', plan.serial != null ? plan.serial.toString(): '', 125, TextInputType.number),
+            SimpleFormField('Időtartam (perc)', plan.minute != null ? plan.minute.toString() : '', 150, TextInputType.number),
             Spacer(),
             Button('Kész', Icons.done, () => {}, 340, 50),
             Spacer()

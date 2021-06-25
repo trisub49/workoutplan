@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:workoutplan/models/WeightPlan.dart';
-
 import 'models/CalisthenicPlan.dart';
 import 'models/Day.dart';
 import 'models/SerialTimedPlan.dart';
@@ -7,6 +7,10 @@ import 'models/TimedPlan.dart';
 
 List<String> dayNames = ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat', 'Vasárnap'];
 List<Day> days = [];
+
+navigate(context, page) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+}
 
 getDayId(String dayName) {
   return dayNames.indexOf(dayName);
@@ -22,4 +26,6 @@ initDays() {
       new SerialTimedPlan('Plank', 5, 2)]));
   }
 }
+
+
   

@@ -39,20 +39,16 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               Spacer(),
-              Button('Tervezés', Icons.calendar_today, () => navigate(context, Planner()), 360, 60),
+              Button('Tervezés', Icons.calendar_today, () => global.navigate(context, Planner()), 360, 60),
               SizedBox(height: 30),
-              Button('Jegyzet', Icons.edit_rounded, () => navigate(context, Planner()), 360, 60),
+              Button('Jegyzet', Icons.edit_rounded, () => global.navigate(context, Planner()), 360, 60),
               SizedBox(height: 30),
-              Button('Kalória számláló', Icons.calculate_outlined, () => navigate(context, Planner()), 360, 60),
+              Button('Kalória számláló', Icons.calculate_outlined, () => global.navigate(context, Planner()), 360, 60),
               Spacer()
             ]
           )
         )
       )
     );
-  }
-
-  void navigate(context, page) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

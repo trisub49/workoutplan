@@ -5,6 +5,8 @@ import 'package:workoutplan/widgets/EditTitleAndTime.dart';
 import 'package:workoutplan/widgets/ListPlan.dart';
 import 'package:workoutplan/global.dart' as global;
 
+import 'AddPlan.dart';
+
 class EditDay extends StatelessWidget {
 
   final int dayId;
@@ -38,7 +40,7 @@ class EditDay extends StatelessWidget {
           SizedBox(height: 40),
           ListPlan(dayId, global.days[dayId].plans),
           SizedBox(height: 40),
-          Center(child:Button('Új terv', Icons.add, () => {}, 200, 50))
+          Center(child:Button('Új terv', Icons.add, () => global.navigate(context, AddPlan(dayId)), 200, 50))
         ]
       )
     );
