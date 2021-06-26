@@ -3,13 +3,11 @@ import 'package:workoutplan/global.dart' as global;
 
 class SubmitPlanDelete extends StatelessWidget {
 
-  final BuildContext preContext;
   final int dayId;
   final int planId;
 
-  SubmitPlanDelete(this.preContext, this.dayId, this.planId);
+  SubmitPlanDelete(this.dayId, this.planId);
 
-  @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text('Megerősítés'),

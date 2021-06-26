@@ -5,20 +5,20 @@ import 'package:workoutplan/global.dart' as global;
 
 class DayPlan extends StatefulWidget {
 
-  final String day;
-  final String title;
-  final String startTime;
-  final String endTime;
-  final List<Plan> plans;
+  final int dayId;
+  final Color color;
 
-  DayPlan(this.day, this.title, this.startTime, this.endTime, this.plans);
+  DayPlan(this.dayId, this.color);
 
   _DayPlanState createState() {
-    return _DayPlanState(day, title, startTime, endTime, plans);
+    return _DayPlanState(this.dayId, this.color);
   }
 }
 
 class _DayPlanState extends State<DayPlan> {
+
+  int dayId;
+  Color color;
 
   String day;
   String title;
@@ -26,7 +26,15 @@ class _DayPlanState extends State<DayPlan> {
   String endTime;
   List<Plan> plans;
 
-  _DayPlanState(this.day, this.title, this.startTime, this.endTime, this.plans);
+  initState() {
+    this.day = global.days[dayId].day;
+    this.title = global.days[dayId].title;
+    this.startTime = global.days[dayId].startTime;
+    this.endTime = global.days[dayId].endTime;
+    this.plans = global.days[dayId].plans;
+  }
+
+  _DayPlanState(this.dayId, this.color);
 
   Widget build(BuildContext context) {
 
@@ -37,17 +45,23 @@ class _DayPlanState extends State<DayPlan> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(day, style: TextStyle(fontSize: 36.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100)), 
-              Text(startTime.length > 0 && endTime.length > 0 ? '${startTime} - ${endTime}' : '', style: TextStyle(color: Colors.blue)),
+              Text(day, style: TextStyle(fontSize: 32.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100)), 
+              Text(startTime.length > 0 && endTime.length > 0 ? '$startTime - $endTime' : '', style: TextStyle(color: Colors.blue)),
               Spacer(),
-              Text(title.length > 0 ? title : 'Nincs megadva', style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
+              Text(title.length > 0 ? title : 'Nincs megadva', style: TextStyle(fontSize: 16.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w100, fontStyle: FontStyle.italic)),
               Spacer(),
               IconButton(
-                icon: Icon(Icons.edit_rounded, size: 24),
+                icon: Icon(Icons.edit_outlined, size: 24, color: Colors.lightBlue),
                 tooltip: 'Szerkesztés',
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditDay(global.getDayId(day)))).then((value) => setState(() {}))
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditDay(global.getDayId(day))))
+                .then((value) => setState(() {
+                  title = global.days[dayId].title;
+                  startTime = global.days[dayId].startTime;
+                  endTime = global.days[dayId].endTime;
+                  plans = global.days[dayId].plans;
+                }))
               )
-            ]
+            ],
           ),
           Spacer(),
           Column(
@@ -61,22 +75,28 @@ class _DayPlanState extends State<DayPlan> {
       height: 200,
       width: 380,
       decoration: BoxDecoration(
+        color: this.color,
         border: Border.all(color: Colors.grey, style: BorderStyle.solid, width: 0.5)
       ),
     );
-  }
-
-  void navigate(context, page) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 
   List<Widget> _loadPlans() {
 
     if(plans.length > 0) {
       return new List<Widget>.generate(plans.length, (int index) {
-        return Text(
-          plans[index].toString(), 
-          style: TextStyle(fontSize: 20.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)
+        List<String> planTiles = plans[index].toString().split(' (');
+        
+        return Container(
+          padding: EdgeInsets.symmetric(vertical: 3.75),
+          width: 250,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(planTiles[0], style: TextStyle(fontSize: 16.0, color: Colors.black, fontFamily: 'Roboto', fontWeight: FontWeight.w300)),
+              Text('(' + planTiles[1], style: TextStyle(fontSize: 16.0, color: Colors.blue, fontFamily: 'Roboto', fontWeight: FontWeight.w300))
+            ]
+          )
         );
       });
     } else {

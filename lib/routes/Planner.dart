@@ -13,15 +13,15 @@ class _PlannerState extends State<Planner> {
     return Scaffold(
       appBar: AppBar(title: Text('Tervezés')),
       body: ListView(
-        children: _loadDays()
+        children: _loadDays(context)
       )
     );
   }
 
-  List<Widget> _loadDays() {
+  List<Widget> _loadDays(BuildContext context) {
     if(global.days.length > 0) {
       return new List<Widget>.generate(global.days.length, (int index) {
-        return new DayPlan(global.days[index].day, global.days[index].title, global.days[index].startTime, global.days[index].endTime, global.days[index].plans);
+        return new DayPlan(index, index % 2 == 0 ? Colors.white : Colors.grey.shade100);
       });
     } else {
       return [Icon(Icons.not_interested, size: 100, color: Colors.grey)];

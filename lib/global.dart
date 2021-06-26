@@ -19,7 +19,7 @@ getDayId(String dayName) {
 initDays() {
   days = [];
   for (var day in dayNames) {
-    days.add(new Day(day, '', '', '',  [
+    days.add(new Day(day, 'Ez', '17:30', '18:30',  [
       new WeightPlan('Fekvenyomás', 5, 20, 50), 
       new CalisthenicPlan('Fekvőtámasz', 6, 25),
       new TimedPlan('Futás', 30),
