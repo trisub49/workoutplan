@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Edzésterv készítő',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.lightBlue,
         fontFamily: 'Roboto'
       ),
       home: HomePage()

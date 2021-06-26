@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:workoutplan/models/Plan.dart';
 import 'package:workoutplan/widgets/Button.dart';
 import 'package:workoutplan/global.dart' as global;
-import 'package:workoutplan/widgets/SubmitPlanDelete.dart';
-import 'package:workoutplan/widgets/SubmitRestDay.dart';
+import 'package:workoutplan/widgets/dialogs/ReplaceDay.dart';
+import 'package:workoutplan/widgets/dialogs/SubmitPlanDelete.dart';
+import 'package:workoutplan/widgets/dialogs/SubmitRestDay.dart';
 import 'AddPlan.dart';
 import 'EditPlan.dart';
 
@@ -79,6 +80,7 @@ class EditDayState extends State<EditDay> {
                               validator: (String value) {
                                 this.title = value;
                                 global.days[dayId].title = value;
+                                return null;
                               }
                             )
                           )
@@ -103,6 +105,7 @@ class EditDayState extends State<EditDay> {
                               validator: (String value) {
                                 this.startTime = value;
                                 global.days[dayId].startTime = value;
+                                return null;
                               }
                             )
                           ),
@@ -119,6 +122,7 @@ class EditDayState extends State<EditDay> {
                               validator: (String value) {
                                 this.endTime = value;
                                 global.days[dayId].endTime = value;
+                                return null;
                               }
                             )
                           )
@@ -133,6 +137,17 @@ class EditDayState extends State<EditDay> {
                     IconButton(
                       icon: Icon(Icons.swap_vertical_circle_outlined, size: 30, color: Colors.green), 
                       onPressed: () {
+                        showDialog(
+                          context: context, 
+                          builder: (_) => ReplaceDay(dayId),
+                          barrierDismissible: false
+                        )
+                        .then((value) => setState(() {
+                          title = global.days[dayId].title;
+                          startTime = global.days[dayId].startTime;
+                          endTime = global.days[dayId].endTime;
+                          plans = global.days[dayId].plans;
+                        }));
                       }
                     ),
                     SizedBox(height: 50),
@@ -143,7 +158,8 @@ class EditDayState extends State<EditDay> {
                           context: context, 
                           builder: (_) => SubmitRestDay(context, dayId),
                           barrierDismissible: false
-                        ).then((value) => setState(() => {
+                        )
+                        .then((value) => setState(() => {
                           this.plans = [],
                           this.title = 'Pihenőnap',
                           this.startTime = '',
