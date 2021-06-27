@@ -1,0 +1,61 @@
+Alma, aszalt;1.4;0;55.4;242
+Alma, befőtt;0.3;0;20.2;85
+Alma, Jonatán;0.4;0;7;33.2;33
+Ananász, karika;0.4;0;12;55.9;50
+Ananász, friss;0.4;0;12;53
+Banán;1.3;0;24.2;102.9;89
+Barack;0.7;0;9;41.5;39
+Birsalma;0.6;0;9.1;42
+Citrom;0.4;0;2.3;27
+Citromlé;0.4;0;2.3;63
+Cseresznye;0.8;0;14;63
+Csipkebogyó, lekvár;0.5;0;58;242
+Datolya (préselt);1.9;0;72.5;308
+Dinnye (sárga húsú);0.3;0;9.5;40
+Dinnye (zöld húsú);0.3;0;11.1;47
+Füge, szárított;3.5;0;62;262
+Földieper (szamóca);0.9;0;7.2;35
+Gesztenyekrém (gyorsfagyasztott);2.1;0.6;43.6;193
+Gesztenyepüré (gyorsfagyasztott);2;0.6;47.6;209
+Grapefruit;0.5;0;7.2;36
+Gyümölcssaláta;0.7;0;13.4;60
+Görögdinnye;0.5;0;6.5;29
+Kajszibarack;0.9;0;10.2;48
+Kiwi;1;0;11.3;54.6;61
+Körte;0.4;0;12;52.3;57
+Körte befőtt;0.3;0;23.7;99
+Málna;1.2;0;5.4;29
+Málna (Fertődi, gyorsfagyasztott);1.1;0;6.2;39
+Málna (Nagymarosi gyorsfagyasztott);1.4;0;13;62
+Málna dzsem, üveges;1.5;0;63.3;263
+Mandarin;1.7;0;10.8;50.2;53
+Mazsola;3.5;0;62;273.7;296
+Meggy;0.8;0;11;52
+Meggy befőtt;0.6;0;20.8;90
+Meggy dzsem, üveges;0.4;0;70.3;292
+Meggy (gyorsfagyasztott);0.5;0;10.8;48
+Narancs;0.6;0;8.5;41
+Narancslé;1.6;0;8.5;49.9
+Nektarin;0.4;0;11.4;49
+Őszibarack;0.7;0;9;41
+Őszibarack (gyorsfagyasztott);1;0;10.3;51
+Őszibarack (befőtt);0.5;0;21.2;90
+Őszibarack dzsem, üveges;0.5;0;71.3;295
+Őszibarack hámozaott. gyorsfagyasztott;1.1;0;10.1;50
+Ribizke, fekete;0.9;0;9.5;48
+Ribizke, fekete (gyorsfagyasztott);1.9;0;9.3;56
+Ribizke, vörös;0.6;0;7;34
+Ribizke, vörös (gyorsfagyasztott);1.2;0;5.3;33
+Sárgabarack dzsem, üveges;0.4;0;64.5;267
+Szeder;0.8;0;6;33
+Szeder (gyorsfagyasztott);1.6;0;6.4;37
+Szilva;0.7;0;13.1;59.7
+Szilva, aszalt;2.3;0;61.8;268
+Szilva, befőtt;0.4;0;21.9;92
+Szilva, Besztercei;0.7;0;13.1;58
+Szilva, vörös;0.8;0;10.2;47
+Szilva, Zöldringló;0.8;0;13.5;61
+Szilvaíz, natúr;1.3;0;54;231
+Szőlő;0.6;0;18.1;79.3
+Vegyes gyümölcs;0.7;0;10;50
+Vegyes íz;1;0;60;252

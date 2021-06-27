@@ -1,0 +1,39 @@
+Bárány, juhhús (sovány);19.7;12.7;0.3;200
+Békacomb;24.2;0.9;2.9;119
+Birka (közepes);16.9;26.4;0.3;316
+Borjú;19.5;4.5;0.3;123
+Csiga, éti;17.6;1;0.2;82
+Csirke, comb;20.9;5.2;0.5;136
+Csirkemell filé;24.7;1;0.5;109
+Fácán;22.3;1.9;0.5;111
+Fogoly;20.5;1.2;0.4;97
+Fürj, comb (japán);19.6;5;1.2;132
+Fürj, mell (japán);22.8;2.3;1.1;119
+Galamb;19.6;5;1.2;130
+Kacsa, pecsenye;19;12;0.4;191
+Kagyló;9;2;6.5;82
+Kappan;19.3;9.3;0.4;167
+Liba, hízott;16;35;0.2;392
+Liba, pecseny;18.5;13.6;0.3;203
+Marha, bélszín;19;4.4;0.6;121
+Marha, felsál;17;19;0.6;249
+Marha, hátszín, lapos;15;18;0.6;231
+Marha, hátszín, magas;19;17.2;0.6;240
+Marha, hátszín, puha;19.7;17.8;0.6;249
+Marha lapocka;21;6.2;0.6;147
+Marha szegy;16;21;0.5;263
+Marha tarja;20;6;0.6;140
+Nutria;20.8;10.5;0.5;185
+Nyúl, házi;21;8;0.4;162
+Nyúl, vad;23;1.1;0.5;106
+Őz;20.8;1.9;0.4;105
+Pulyka;20.5;9.5;0.4;174
+Rák;14.9;0.8;2.2;77
+Sertéscomb, karaj;21;8.1;0.4;163
+Sertés csülök;16;29;0.3;337
+Sertés dagadó;12;42;0.3;441
+Sertés lapocka;17.5;23.9;0.3;295
+Szarvas;20.7;3.9;0.6;123
+Tyúk;19;6.5;0.4;140
+Vaddisznó, színhús;21.6;2.4;0.4;112
+Vadkacsa;22.7;3.1;0.5;124

@@ -3,8 +3,9 @@ import 'package:workoutplan/global.dart' as global;
 import 'package:workoutplan/routes/HomePage.dart';
 
 void main() {
-  global.initDays();
   runApp(MyApp());
+  global.loadAllFood();
+  global.initDays();
 }
 
 class MyApp extends StatelessWidget {

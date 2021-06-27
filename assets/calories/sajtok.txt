@@ -1,0 +1,17 @@
+Anikó;24.2;26;1.8;349
+Boci, ízesített;11.5;24.9;1.5;285
+Camembert "Bakony";21.5;23;1.5;308
+Camembert "Tihany";18.2;33.4;1.4;391
+Camping;16.5;26.4;1.7;321
+Derby;16.7;23.4;1.6;285
+Edámi;26.2;26.6;1.7;362
+Ementáli (Pannónia);27.8;29.4;1.5;394
+Göcseji;22.2;23.3;1.4;314
+Karaván, füstölt tömbsajt;22.3;27.3;1.9;353
+Krém fehérsajt;13.4;20.6;1.4;252
+Mackó, kenhető;16.7;25;2;310
+Márvány;20;29.7;2;366
+Parenyica;26;30.4;1.5;396
+Parmezán;26.8;28.9;1.6;385
+Sovány sajt;29.6;18.5;1.7;291
+Trappista;27.7;28.1;1.6;381

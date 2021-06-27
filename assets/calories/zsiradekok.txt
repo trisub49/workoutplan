@@ -1,0 +1,9 @@
+Angolszalonna;16.8;46.5;0;501
+Margarin;0.3;79;0.2;737
+Margarin, sütő;0.5;84;0.4;781
+Olaj (napraforgó, szója, tökmag);0;99.8;0;928
+Olívaolaj;0;100;0;900
+Vaj, szendvics;0.3;70;0.3;653
+Vaj, tea;0.4;80;0.5;748
+Vajkrém;2.5;40;2;390
+Zsír, ami kisül;0;100;0;900
